@@ -2,9 +2,8 @@ import { Module } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { UserModule } from './user/user.module';
+import { UserModule } from './api/user/user.module';
+import { BoardsModule } from './api/boards/boards.module';
 
 @Module({
   imports: [
@@ -25,9 +24,8 @@ import { UserModule } from './user/user.module';
         "dist/**/*.entity.{ts,js}"
       ]
     }),
-    UserModule
+    UserModule,
+    BoardsModule,
   ],
-  controllers: [AppController],
-  providers: [AppService],
 })
 export class AppModule { }
